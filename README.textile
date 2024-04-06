@@ -1,67 +1,45 @@
-h1. ThingSpeak
-
-"ThingSpeak":https://thingspeak.com is an open source "Internet of Things" application and API to store and retrieve data from things using HTTP over the Internet or via a Local Area Network. With ThingSpeak, you can create sensor logging applications, location tracking applications, and a social network of things with status updates.
-
-In addition to storing and retrieving numeric and alphanumeric data, the ThingSpeak API allows for numeric data processing such as timescaling, averaging, median, summing, and rounding. Each ThingSpeak Channel supports data entries of up to 8 data fields, latitude, longitude, elevation, and status. The channel feeds support JSON, XML, and CSV formats for integration into applications.
-
-The ThingSpeak application also features time zone management, read/write API key management and JavaScript-based charts from Highslide Software / Torstein Hønsi.
-
-Support for ThingSpeak is available on the "ThingSpeak Community":http://community.thingspeak.com/ site which features a "Blog":http://community.thingspeak.com/, "Forum":http://community.thingspeak.com/forum/, "Documentation":https://thingspeak.com/docs, and "Tutorials":https://thingspeak.com/docs/tutorials/.
-
-h3. Before You Begin
-
-1. Install Ruby 2, RubyGems, Rails 4, git, and a database like MySQL
-2. Download the application using git: git clone git@github.com:iobridge/thingspeak.git
-3. Change to the thingspeak directory and install the appropriate gems: sudo bundle install
-
-h3. Configuration
-
-1. Set your database configuration file at config/database.yml (see config/database.yml.example for an example)
-2. Create the database: rake db:create
-3. Create the database tables: rake db:schema:load
-
-h3. Run The Application
-
-1. Start the server: rails server
-
-Your application will now be running at http://localhost:3000/
-
-h2. Changing Application Text
-
-Make changes to config/locales/en.yml
-To avoid errors, please ensure your lines start with spaces, not tabs.
-Set your application name using the 'application_name' key.
-
-h2. (Optional) Email Setup
-
-Set your domain, user_name, and password in config/environment.rb
-
-h2. (Optional) Admin Setup
-
-Open a rails console: <code>rails console</code> or <code>RAILS_ENV=production rails console</code>, depending on your environment
-Add the admin user: <code>AdminUser.create!(email: 'YOUR_ADMIN_EMAIL@EXAMPLE.COM', password: 'YOUR_PASSWORD', password_confirmation: 'YOUR_PASSWORD')</code>
-Exit the rails console: <code>exit</code>
-Login via the admin web interface at: "http://YOUR_DOMAIN.COM/admin"
-
-h1. Installation on clean install of Ubuntu 12.04 LTS
-
-<code>sudo apt-get upgrade</code>
-<code>sudo apt-get -y install build-essential mysql-server mysql-client libmysqlclient-dev libxml2-dev libxslt-dev git-core curl rubygems</code>
-<code>\curl -sSL https://get.rvm.io | bash -s stable</code>
-<code>rvm install 2.1</code>
-<code>git clone https://github.com/iobridge/thingspeak.git</code>
-<code>cd thingspeak</code>
-<code>bundle install</code>
-<code>cp config/database.yml.example config/database.yml</code>
-<code>rake db:create</code>
-<code>rake db:schema:load</code>
-<code>rails server</code>
-
-h2. Upgrading existing installations
-
-<code>git pull origin master</code>
-<code>bundle install</code>
-<code>rake db:migrate</code>
-If your server is active you can restart it by going to the active terminal, hitting Ctrl-c, and then typing:
-<code>rails server</code>
-
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">事物说话</font></font></h1><a id="user-content-thingspeak" class="anchor" aria-label="永久链接：ThingSpeak" href="#thingspeak"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://thingspeak.com" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ThingSpeak</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个开源“物联网”应用程序和</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">API</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ，用于通过 Internet 或局域网使用</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">HTTP</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来存储和检索事物中的数据。</font><font style="vertical-align: inherit;">借助 ThingSpeak，您可以创建传感器记录应用程序、位置跟踪应用程序以及具有状态更新的社交网络。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">除了存储和检索数字和字母数字数据外，ThingSpeak </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">API</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">还允许进行数字数据处理，例如时间缩放、平均、中值、求和和舍入。每个 ThingSpeak Channel 支持最多 8 个数据字段、纬度、经度、海拔和状态的数据条目。频道源支持</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JSON</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">XML</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CSV</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">格式，以便集成到应用程序中。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ThingSpeak 应用程序还具有时区管理、读/写</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">API</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">密钥管理和来自 Highslide Software / Torstein Hønsi 的基于 JavaScript 的图表。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="http://community.thingspeak.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ThingSpeak 社区</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站提供对 ThingSpeak 的支持</font><font style="vertical-align: inherit;">，该网站设有</font></font><a href="http://community.thingspeak.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">博客</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="http://community.thingspeak.com/forum/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">论坛</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://thingspeak.com/docs" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://thingspeak.com/docs/tutorials/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">教程</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在你开始之前</font></font></h3><a id="user-content-before-you-begin" class="anchor" aria-label="永久链接：开始之前" href="#before-you-begin"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. 安装 Ruby 2、RubyGems、Rails 4、git 和 MySQL 等数据库</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+2. 使用 git 下载应用程序： git clone git@github.com:iobridge/thingspeak.git </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+3. 切换到 thingspeak 目录并安装相应的应用程序</font><font style="vertical-align: inherit;">gems： sudo 捆绑安装</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置</font></font></h3><a id="user-content-configuration" class="anchor" aria-label="永久链接：配置" href="#configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. 在 config/database.yml 中设置数据库配置文件（有关示例，请参阅 config/database.yml.example）</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+2. 创建数据库：rake db:create </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+3. 创建数据库表：rake db:schema:load</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行应用程序</font></font></h3><a id="user-content-run-the-application" class="anchor" aria-label="永久链接：运行应用程序" href="#run-the-application"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1.启动服务器：rails服务器</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您的应用程序现在将在 http://localhost:3000/ 上运行</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更改申请文本</font></font></h2><a id="user-content-changing-application-text" class="anchor" aria-label="永久链接：更改应用程序文本" href="#changing-application-text"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更改 config/locales/en.yml</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+为避免错误，请确保您的行以空格而不是制表符开头。</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+使用“application_name”键设置您的应用程序名称。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（可选）电子邮件设置</font></font></h2><a id="user-content-optional-email-setup" class="anchor" aria-label="永久链接：（可选）电子邮件设置" href="#optional-email-setup"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 config/environment.rb 中设置您的域、用户名和密码</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（可选）管理设置</font></font></h2><a id="user-content-optional-admin-setup" class="anchor" aria-label="永久链接：（可选）管理设置" href="#optional-admin-setup"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">打开 Rails 控制台：</font></font><code>rails console</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code>RAILS_ENV=production rails console</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，具体取决于您的环境</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+添加管理员用户：</font></font><code>AdminUser.create!(email: 'YOUR_ADMIN_EMAIL@EXAMPLE.COM', password: 'YOUR_PASSWORD', password_confirmation: 'YOUR_PASSWORD')</code><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+退出 Rails 控制台：</font></font><code>exit</code><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+通过管理 Web 界面登录：“http://YOUR_DOMAIN. </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">COM</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> /管理员”</font></font></p>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全新安装 Ubuntu 12.04 </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LTS</font></font></span></h1><a id="user-content-installation-on-clean-install-of-ubuntu-1204-lts" class="anchor" aria-label="永久链接：全新安装 Ubuntu 12.04 LTS" href="#installation-on-clean-install-of-ubuntu-1204-lts"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><code>sudo apt-get upgrade</code><br>
+<code>sudo apt-get -y install build-essential mysql-server mysql-client libmysqlclient-dev libxml2-dev libxslt-dev git-core curl rubygems</code><br>
+<code>\curl -sSL https://get.rvm.io | bash -s stable</code><br>
+<code>rvm install 2.1</code><br>
+<code>git clone https://github.com/iobridge/thingspeak.git</code><br>
+<code>cd thingspeak</code><br>
+<code>bundle install</code><br>
+<code>cp config/database.yml.example config/database.yml</code><br>
+<code>rake db:create</code><br>
+<code>rake db:schema:load</code><br>
+<code>rails server</code></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">升级现有装置</font></font></h2><a id="user-content-upgrading-existing-installations" class="anchor" aria-label="永久链接：升级现有安装" href="#upgrading-existing-installations"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><code>git pull origin master</code><br>
+<code>bundle install</code><br>
+<code>rake db:migrate</code><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+如果您的服务器处于活动状态，您可以通过转到活动终端，按 Ctrl-c，然后键入以下内容来重新启动它：</font></font><br>
+<code>rails server</code></p></article></div>
